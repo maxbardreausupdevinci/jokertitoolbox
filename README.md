@@ -23,7 +23,7 @@ Une fois configurée, la Toolbox effectuera les actions suivantes :
 
     Configuration
 Pour utiliser la Toolbox, suivez ces étapes simples :
-python jokertioolbox.py -ip <adresse_IP_cible>
+python jokertitoolbox.py -ip <adresse_IP_cible>
 
         Risques et Conséquences
 
