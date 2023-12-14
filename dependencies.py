@@ -14,7 +14,7 @@ def install_pip():
         # Install pip using apt
         print("pip non trouvé, installation en cours...")
         update_apt()
-        subprocess.call(["sudo", "apt", "install", "python3-pip"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        subprocess.call(["sudo", "apt", "install", "python3-pip", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
         print("ok")
 
 def install_nmap():
@@ -25,7 +25,7 @@ def install_nmap():
         # Install nmap using apt
         print("Nmap non trouvé, installation en cours...")
         update_apt()
-        subprocess.call(["sudo", "apt", "install", "nmap"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        subprocess.call(["sudo", "apt", "install", "nmap", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
         print("ok")
 
 def install_paramiko():
@@ -36,7 +36,7 @@ def install_paramiko():
         # Install paramiko using apt
         print("Paramiko (SSH) non trouvé, installation en cours...")
         update_apt()
-        subprocess.call(["sudo", "apt", "install", "python3-paramiko"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        subprocess.call(["sudo", "apt", "install", "python3-paramiko", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
         print("ok")
 
 # Installation des dépendances

@@ -1,11 +1,11 @@
 #Ce script permet de faire un test d'intrusion sur une machine distante, il prend comme argument l'adresse IP de la machine distante, et appele les scripts bruteforcesshmdp.py, nmap.py et les exploit compatible afin de rédiger un rapport de test d'intrusion dans un fichier json.
 import subprocess
-import paramiko
 import sys
 import json
 
 # Lance le script qui installera les dépendances
 subprocess.call(["python3", "dependencies.py"])
+import paramiko
 
 # Ici, il y a toutes les fonctions qui seront appelées lors de l'execution du script
 
