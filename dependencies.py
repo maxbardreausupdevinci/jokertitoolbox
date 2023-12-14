@@ -30,7 +30,6 @@ def install_nmap():
 
 def install_paramiko():
         # Install paramiko using apt
-        print("Paramiko (SSH) non trouvé, installation en cours...")
         update_apt()
         subprocess.call(["sudo", "apt", "install", "python3-paramiko", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
         print("ok")
