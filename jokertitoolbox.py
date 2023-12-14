@@ -37,12 +37,12 @@ def run_nmap_scan(ip_address):
     return open_ports, services, cves
 
 # Perform the Nmap scan
-open_ports, services, cves = run_nmap_scan(ip_address)
+#open_ports, services, cves = run_nmap_scan(ip_address)
 
 # Affiche les résultats du scan a l'écran
-print("Open ports:", open_ports)
-print("Services:", services)
-print("CVEs:", cves)
+#print("Open ports:", open_ports)
+#print("Services:", services)
+#print("CVEs:", cves)
 
 
 # Effectue un bruteforce sur le service SSH
