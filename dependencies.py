@@ -4,7 +4,7 @@ import sys
 # Vérification de toutes les dépendances nécessaires à l'exécution du script
 
 def update_apt():
-    subprocess.call(["sudo", "apt", "update"])
+    subprocess.call(["sudo", "apt", "update"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
 def install_pip():
     try:
@@ -12,7 +12,9 @@ def install_pip():
         subprocess.check_output(["pip", "--version"])
     except subprocess.CalledProcessError:
         # Install pip using apt
-        subprocess.call(["sudo", "apt", "install", "python3-pip"])
+        print("pip non trouvé, installation en cours...")
+        update_apt()
+        subprocess.call(["sudo", "apt", "install", "python3-pip"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
 def install_nmap():
     try:
@@ -20,7 +22,9 @@ def install_nmap():
         subprocess.check_output(["nmap", "--version"])
     except subprocess.CalledProcessError:
         # Install nmap using apt
-        subprocess.call(["sudo", "apt", "install", "nmap"]) 
+        print("Nmap non trouvé, installation en cours...")
+        update_apt()
+        subprocess.call(["sudo", "apt", "install", "nmap"]), stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
 def install_paramiko():
     try:
@@ -28,11 +32,9 @@ def install_paramiko():
         subprocess.check_output(["python3", "-c", "import paramiko"])
     except subprocess.CalledProcessError:
         # Install paramiko using apt
-        subprocess.call(["sudo", "apt", "install", "python3-paramiko"])
-
-
-# Mise à jour des paquets
-update_apt()
+        print("Paramiko (SSH) non trouvé, installation en cours...")
+        update_apt()
+        subprocess.call(["sudo", "apt", "install", "python3-paramiko"]), stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
 # Installation des dépendances
 install_nmap()
