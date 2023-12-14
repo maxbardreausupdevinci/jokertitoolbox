@@ -5,7 +5,7 @@ import sys
 
 # Lance le script qui installera les dépendances
 
-subprocess.call(["python3", "install_dependencies.py"])
+subprocess.call(["python3", "dependencies.py"])
 
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
 ip_address = input("Enter the IP address to scan: ")
