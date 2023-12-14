@@ -1,4 +1,6 @@
 import subprocess
+import os
+import sys
 # Vérification de toutes les dépendances nécessaires à l'exécution du script
 
 def update_apt():
