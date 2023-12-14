@@ -58,7 +58,7 @@ def brute_force_ssh(ip):
                 continue
             except Exception as e:
                 print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
-                break
+                return
                 
     print("Brute force SSH échoué !")
 
