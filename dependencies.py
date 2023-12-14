@@ -32,9 +32,8 @@ def install_paramiko():
         # Install paramiko using apt
         update_apt()
         subprocess.call(["sudo", "apt", "install", "python3-paramiko", "-y"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-        print("ok")
 
 # Installation des dépendances
 install_nmap()
-install_pip()
+#install_pip()
 install_paramiko()
