@@ -2,6 +2,7 @@
 import subprocess
 import sys
 import json
+import datetime
 
 # Lance le script qui installera les dépendances
 subprocess.call(["python3", "dependencies.py"])
@@ -83,6 +84,10 @@ print("Lancement des exploits...")
 
 # Rédaction du rapport de test d'intrusion dans un fichier json
 print("Rédaction du rapport de test d'intrusion...")
+current_datetime = datetime.datetime.now()
+formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+json_filename = f"report_{ip_address}_{formatted_datetime}.json"
+
 report = {
     "ip_address": ip_address,
     "open_tcp_ports": open_tcp_ports,
@@ -92,7 +97,7 @@ report = {
     "identifiants SSH": resultbruteforcessh
 }
 
-with open("report.json", "w") as f:
+with open(json_filename, "w") as f:
     json.dump(report, f)
 
-print("Rapport de test d'intrusion terminé !, les résultats sont dans le fichier rapport.json")
+print("Rapport de test d'intrusion terminé ! Les résultats sont dans le fichier", json_filename)
