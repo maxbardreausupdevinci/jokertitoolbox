@@ -2,13 +2,12 @@
 import subprocess
 import paramiko
 import sys
+import json
 
 # Lance le script qui installera les dépendances
-
 subprocess.call(["python3", "dependencies.py"])
 
-# Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
-ip_address = input("Enter the IP address to scan: ")
+# Ici, il y a toutes les fonctions qui seront appelées lors de l'execution du script
 
 # Fonction qui lance un scan Nmap sur la machine distante
 def run_nmap_scan(ip_address):
@@ -38,16 +37,7 @@ def run_nmap_scan(ip_address):
     
     return open_tcp_ports, open_udp_ports, services, cves
 
-# Execute la fonction run_nmap_scan avec l'adresse IP fournie
-open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
-
-# Affiche les résultats du scan a l'écran
-print("Open TCP ports:", open_tcp_ports)
-print("Open UDP ports:", open_udp_ports)
-print("Services:", services)
-print("CVEs:", cves)
-
-# Effectue un bruteforce sur le service SSH
+# Fontion qui execute un bruteforce sur le service SSH
 def brute_force_ssh(ip):
     usernames = ["debian", "root", "user", "admin"]
     
@@ -68,9 +58,44 @@ def brute_force_ssh(ip):
     
     print("Attack unsuccessful")
 
+
+
+
+
+# Début du script
+# Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
+ip_address = input("Enter the IP address to scan: ")
+
+# Execute la fonction run_nmap_scan avec l'adresse IP fournie
+print("Lancement du scan Nmap...")
+open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
+
+# Affiche les résultats du scan a l'écran
+print("Ports TCP ouvert:", open_tcp_ports)
+print("Ports UDP ouvert:", open_udp_ports)
+print("Services:", services)
+print("CVEs:", cves)
+
 # Appelle la fonction brute_force_ssh avec l'adresse IP fournie
-brute_force_ssh(ip_address)
+print("Lancement du brute force SSH...")
 
-#appel des exploits compatibles
+resultbruteforcessh = brute_force_ssh(ip_address)
 
-#rédaction du rapport de test d'intrusion dans un fichier json
+# Appel des exploits compatibles
+print("Lancement des exploits...")
+
+# Rédaction du rapport de test d'intrusion dans un fichier json
+print("Rédaction du rapport de test d'intrusion...")
+report = {
+    "ip_address": ip_address,
+    "open_tcp_ports": open_tcp_ports,
+    "open_udp_ports": open_udp_ports,
+    "services": services,
+    "cves": cves,
+    "identifiants SSH": resultbruteforcessh
+}
+
+with open("report.json", "w") as f:
+    json.dump(report, f)
+
+print("Rapport de test d'intrusion terminé !, les résultats sont dans le fichier rapport.json")
