@@ -60,7 +60,7 @@ def brute_force_ssh(ip):
                 print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
                 break
                 
-    print("Attack unsuccessful")
+    print("Brute force SSH échoué !")
 
 # Début du script
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
