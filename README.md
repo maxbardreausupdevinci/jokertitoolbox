@@ -1,7 +1,7 @@
 Joker-TIToolBox
 
-Utilisable sur Debian avec Python3, lancer le script en sudo !
-sudo python3 jockertitoolbox.py
+Utilisable sur Debian avec Python3, lancer le script en sudo :
+    $sudo python3 jockertitoolbox.py
 
     Description
 La Toolbox de Pentesting est un outil puissant conçu pour évaluer la sécurité des systèmes informatiques en identifiant les vulnérabilités potentielles et en testant leur exploitabilité. Cette boîte à outils utilise une série de techniques avancées pour analyser les systèmes cibles, identifier les services actifs, et exploiter les faiblesses de sécurité détectées.
