@@ -29,10 +29,6 @@ def install_nmap():
         print("ok")
 
 def install_paramiko():
-    try:
-        # Check if paramiko is installed
-        subprocess.check_output(["python3", "-c", "import paramiko"])
-    except subprocess.CalledProcessError:
         # Install paramiko using apt
         print("Paramiko (SSH) non trouvé, installation en cours...")
         update_apt()
