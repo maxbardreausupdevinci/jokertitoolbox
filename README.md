@@ -1,5 +1,7 @@
 Joker-TIToolBox
 
+Pour les tests, il faut une machine Debian, il suffit de lancer le script installationdebianvulnerable.sh afin de préparer la machine.
+
 Utilisable sur Debian avec Python3, lancer le script en sudo :
 
 $sudo python3 jockertitoolbox.py

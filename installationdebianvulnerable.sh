@@ -13,3 +13,5 @@ sudo sed -i 's/#UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 sudo service ssh restart
 # Ajout du démarrage de SSH au démarrage du système
 sudo systemctl enable ssh
+# Changement du mot de passe de l'utilisateur debian
+echo "debian:jetaime" | sudo chpasswd
