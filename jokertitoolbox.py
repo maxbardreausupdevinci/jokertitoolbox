@@ -1,3 +1,4 @@
+
 #Ce script permet de faire un test d'intrusion sur une machine distante, il prend comme argument l'adresse IP de la machine distante, et appele les scripts bruteforcesshmdp.py, nmap.py et les exploit compatible afin de rédiger un rapport de test d'intrusion dans un fichier json.
 import subprocess
 import sys
@@ -7,6 +8,7 @@ import datetime
 # Lance le script qui installera les dépendances
 subprocess.call(["python3", "dependencies.py"])
 import paramiko
+import re
 
 # Ici, il y a toutes les fonctions qui seront appelées lors de l'execution du script
 
@@ -59,12 +61,20 @@ def brute_force_ssh(ip):
             except Exception as e:
                 print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
                 return
-                
-    print("Brute force SSH échoué !")
 
 # Début du script
+# Fonction pour vérifier si une chaîne est une adresse IP valide
+def is_valid_ip(ip):
+    pattern = r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"
+    return re.match(pattern, ip) is not None
+
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
 ip_address = input("Enter the IP address to scan: ")
+
+# Vérifie si l'adresse IP est valide
+while not is_valid_ip(ip_address):
+    print("Invalid IP address. Please try again.")
+    ip_address = input("Enter the IP address to scan: ")
 
 # Execute la fonction run_nmap_scan avec l'adresse IP fournie
 print("Lancement du scan Nmap...")
