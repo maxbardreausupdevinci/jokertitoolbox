@@ -1,4 +1,3 @@
-
 #Ce script permet de faire un test d'intrusion sur une machine distante, il prend comme argument l'adresse IP de la machine distante, et appele les scripts bruteforcesshmdp.py, nmap.py et les exploit compatible afin de rédiger un rapport de test d'intrusion dans un fichier json.
 import subprocess
 import sys
@@ -9,15 +8,6 @@ import datetime
 subprocess.call(["python3", "dependencies.py"])
 import paramiko
 import re
-
-# Affiche un banner au démmarage du script
-
-print("**********************************************************************")
-print("*      __   __       ___  __  ___   ___  __   __        __   __      *")
-print("*   | /  \ /   |__/ |__  |__)  |  |  |  /  \ /  \ |    |__) /  \ \_/ *")
-print("*\__/ \__/ \__ |  \ |___ |  \  |  |  |  \__/ \__/ |___ |__) \__/ / \ *")
-print("*                                                                    *")
-print("**********************************************************************")
 
 # Ici, il y a toutes les fonctions qui seront appelées lors de l'execution du script
 
@@ -70,12 +60,23 @@ def brute_force_ssh(ip):
             except Exception as e:
                 print(f"Impossible de se connecter en SSH à la machine {ip}: {e}")
                 return
-
-# Début du script
+            
 # Fonction pour vérifier si une chaîne est une adresse IP valide
 def is_valid_ip(ip):
     pattern = r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"
     return re.match(pattern, ip) is not None
+
+# Début du script
+
+# Affiche un banner au démmarage du script
+print("**********************************************************************")
+print("*      __   __       ___  __  ___   ___  __   __        __   __      *")
+print("*   | /  \ /   |__/ |__  |__)  |  |  |  /  \ /  \ |    |__) /  \ \_/ *")
+print("*\__/ \__/ \__ |  \ |___ |  \  |  |  |  \__/ \__/ |___ |__) \__/ / \ *")
+print("*                                                                    *")
+print("**********************************************************************")
+
+
 
 # Demande a l'utilisateur d'entrer l'adresse IP de la machine distante
 ip_address = input("Enter the IP address to scan: ")
