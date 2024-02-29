@@ -11,12 +11,12 @@ import paramiko
 import re
 
 # Affiche un banner au démmarage du script
-def display_banner():
-    print("**********************************************")
-    print("*                                            *")
-    print("*         Welcome to Joker-TIToolBox!        *")
-    print("*                                            *")
-    print("**********************************************")
+
+print("**********************************************")
+print("*                                            *")
+print("*         Welcome to Joker-TIToolBox!        *")
+print("*                                            *")
+print("**********************************************")
 
 # Ici, il y a toutes les fonctions qui seront appelées lors de l'execution du script
 
