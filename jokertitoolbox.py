@@ -3,6 +3,7 @@ import subprocess
 import sys
 import json
 import datetime
+from CVE import CVE_2017_9798
 
 # Lance le script qui installera les dépendances
 subprocess.call(["python3", "dependencies.py"])
@@ -100,6 +101,12 @@ print("CVEs:", cves)
 print("Lancement du brute force SSH...")
 
 resultbruteforcessh = brute_force_ssh(ip_address)
+
+#TEST DE LA CVE 2017-9798
+if CVE_2017_9798.CVE_2017_9798("192.168.140.142", "-n 100 -a") is True:
+        print("FAILLE PRESENTE !!!!")
+else:
+    print("FAILLE NON PRESENTE !")
 
 # Appel des exploits compatibles
 print("Lancement des exploits...")
