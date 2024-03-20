@@ -47,7 +47,7 @@ def CVE_2017_9798(hosttocheck):
             formatter_class=argparse.RawTextHelpFormatter) 
     parser.add_argument('hosttocheck',  action='store', nargs='?', default=hosttocheck,
                         help='The hostname you want to test against')
-    parser.add_argument('-n', nargs=1, type=int, default=[10],
+    parser.add_argument('-n', nargs=1, type=int, default=[100],
                         help='number of tests (default 10)')
     parser.add_argument("-a", "--all", action="store_true", default=True,
                         help="show headers from hosts without problems")
