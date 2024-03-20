@@ -115,7 +115,7 @@ else:
     print("CVE_2017_9798 NON PRESENTE !")
     CVE_2017_9798_Result = False
 
- Rédaction du rapport de test d'intrusion dans un fichier json
+# Rédaction du rapport de test d'intrusion dans un fichier json
 print("Rédaction du rapport de test d'intrusion...")
 current_datetime = datetime.datetime.now()
 formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
