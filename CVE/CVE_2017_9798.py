@@ -8,7 +8,6 @@ import urllib3
 import re
 
 def CVE_2017_9798(hosttocheck):
-    print(hosttocheck)
     def test_bleed(url, args):
         r = pool.request('OPTIONS', url)
         try:
