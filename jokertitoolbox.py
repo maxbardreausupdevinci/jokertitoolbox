@@ -106,7 +106,7 @@ resultbruteforcessh = brute_force_ssh(ip_address)
 import shlex
 
 # Chaîne de commande à analyser
-command_string = '-n 100 -a -u "192.168.140.142"'
+command_string = '-n 100 -a -u 192.168.140.142'
 
 # Analyser la chaîne de commande en une liste d'arguments
 args = shlex.split(command_string)
