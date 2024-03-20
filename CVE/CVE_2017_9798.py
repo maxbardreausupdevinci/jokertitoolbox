@@ -73,7 +73,7 @@ def CVE_2017_9798(hosttocheck):
             for i in range(howoften):
                 try:
                     if test_bleed(prefix+args.hosttocheck, args) is False:
-                        result = False
+                        result = True
                         break
                 except Exception as e:
                     pass
