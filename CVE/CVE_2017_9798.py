@@ -65,7 +65,7 @@ def CVE_2017_9798(args):
     pool = urllib3.PoolManager(10, cert_reqs='CERT_NONE')
 
     if args.url:
-    #    test_bleed(args.hosttocheck, args)
+        test_bleed(args.hosttocheck, args)
         result = test_bleed(args.hosttocheck, args)
     else:
         for prefix in ['http://', 'http://www.', 'https://', 'https://www.']:
