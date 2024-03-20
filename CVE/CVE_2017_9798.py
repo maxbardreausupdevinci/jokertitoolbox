@@ -43,8 +43,8 @@ def CVE_2017_9798(hosttocheck):
             "[spaces] space-separated method list (should be comma-separated)\n"
             "[duplicates] duplicates in list (may be apache bug 61207)\n"
             "[ok] normal list found (only shown with -a/--all)\n",
-            formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument('hosttocheck',  action='store',
+            formatter_class=argparse.RawTextHelpFormatter) 
+    parser.add_argument('hosttocheck',  action='store', default=hosttocheck,
                         help='The hostname you want to test against')
     parser.add_argument('-n', nargs=1, type=int, default=[10],
                         help='number of tests (default 10)')
