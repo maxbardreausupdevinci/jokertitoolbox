@@ -57,6 +57,12 @@ def CVE_2017_9798(hosttocheck):
 
     dup = []
 
+    print("IP address:", args.hosttocheck)
+    print("Number of tests:", howoften)
+    print("Show headers from hosts without problems:", args.all)
+    print("Pass URL instead of hostname:", args.url)
+
+
     # Note: This disables warnings about the lack of certificate verification.
     # Usually this is a bad idea, but for this tool we want to find vulnerabilities
     # even if they are shipped with invalid certificates.
