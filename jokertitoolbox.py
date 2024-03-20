@@ -103,16 +103,9 @@ while not is_valid_ip(ip_address):
 print("Lancement du brute force SSH...")
 
 resultbruteforcessh = brute_force_ssh(ip_address)
-import shlex
-
-# Chaîne de commande à analyser
-command_string = '-n 100 -a -u 192.168.140.142'
-
-# Analyser la chaîne de commande en une liste d'arguments
-args = shlex.split(command_string)
 
 # Test de la CVE 2017-9798
-if CVE_2017_9798.CVE_2017_9798(args) is True:
+if CVE_2017_9798.CVE_2017_9798('192.168.140.142') is True:
     print("CVE_2017_9798 PRESENTE !!!!")
 else:
     print("CVE_2017_9798 NON PRESENTE !")

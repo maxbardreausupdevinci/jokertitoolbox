@@ -7,7 +7,7 @@ import argparse
 import urllib3
 import re
 
-def CVE_2017_9798(args):
+def CVE_2017_9798(hosttocheck):
     def test_bleed(url, args):
         r = pool.request('OPTIONS', url)
         try:
@@ -48,9 +48,9 @@ def CVE_2017_9798(args):
                         help='The hostname you want to test against')
     parser.add_argument('-n', nargs=1, type=int, default=[10],
                         help='number of tests (default 10)')
-    parser.add_argument("-a", "--all", action="store_true",
+    parser.add_argument("-a", "--all", action="store_true", default=True,
                         help="show headers from hosts without problems")
-    parser.add_argument("-u", "--url", action='store_true',
+    parser.add_argument("-u", "--url", action='store_true', default=True,
                         help="pass URL instead of hostname")
     args = parser.parse_args()
     howoften = int(args.n[0])
