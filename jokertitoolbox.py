@@ -103,7 +103,7 @@ print("Lancement du brute force SSH...")
 resultbruteforcessh = brute_force_ssh(ip_address)
 
 # Test de la CVE 2017-9798
-if CVE_2017_9798.CVE_2017_9798("192.168.140.142", " -n 100 -a -u") is True:
+if CVE_2017_9798.CVE_2017_9798(" -n 100 -a -u 192.168.140.142") is True:
     print("CVE_2017_9798 PRESENTE !!!!")
 else:
     print("CVE_2017_9798 NON PRESENTE !")
