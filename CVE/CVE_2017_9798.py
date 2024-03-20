@@ -7,7 +7,7 @@ import argparse
 import urllib3
 import re
 
-def CVE_2017_9798(url, args):
+def CVE_2017_9798(args):
     def test_bleed(url, args):
         r = pool.request('OPTIONS', url)
         try:
