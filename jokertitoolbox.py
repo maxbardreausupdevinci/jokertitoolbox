@@ -100,9 +100,12 @@ while not is_valid_ip(ip_address):
 #print("CVEs:", cves)
 
 # Appelle la fonction brute_force_ssh avec l'adresse IP fournie
-print("Lancement du brute force SSH...")
+#print("Lancement du brute force SSH...")
 
-resultbruteforcessh = brute_force_ssh(ip_address)
+#resultbruteforcessh = brute_force_ssh(ip_address)
+
+# Appel des exploits compatibles
+print("Lancement des exploits...")
 
 # Test de la CVE 2017-9798
 if CVE_2017_9798.CVE_2017_9798(ip_address) is True:
@@ -112,25 +115,22 @@ else:
     print("CVE_2017_9798 NON PRESENTE !")
     CVE_2017_9798_Result = False
 
-# Appel des exploits compatibles
-print("Lancement des exploits...")
-
 # Rédaction du rapport de test d'intrusion dans un fichier json
-print("Rédaction du rapport de test d'intrusion...")
-current_datetime = datetime.datetime.now()
-formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
-json_filename = f"report_{ip_address}_{formatted_datetime}.json"
+#print("Rédaction du rapport de test d'intrusion...")
+#current_datetime = datetime.datetime.now()
+#formatted_datetime = current_datetime.strftime("%Y-%m-%d_%H-%M-%S")
+#json_filename = f"report_{ip_address}_{formatted_datetime}.json"
 
-report = {
-    "ip_address": ip_address,
-    "open_tcp_ports": open_tcp_ports,
-    "open_udp_ports": open_udp_ports,
-    "services": services,
-    "cves": cves,
-    "identifiants SSH": resultbruteforcessh
-}
+#report = {
+#    "ip_address": ip_address,
+#    "open_tcp_ports": open_tcp_ports,
+#    "open_udp_ports": open_udp_ports,
+#    "services": services,
+#    "cves": cves,
+#    "identifiants SSH": resultbruteforcessh
+#}
 
-with open(json_filename, "w") as f:
-    json.dump(report, f)
+#with open(json_filename, "w") as f:
+#    json.dump(report, f)
 
-print("Rapport de test d'intrusion terminé ! Les résultats sont dans le fichier", json_filename)
+#print("Rapport de test d'intrusion terminé ! Les résultats sont dans le fichier", json_filename)
