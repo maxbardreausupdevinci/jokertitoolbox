@@ -88,8 +88,8 @@ while not is_valid_ip(ip_address):
     ip_address = input("Enter the IP address to scan: ")
 
 # Execute la fonction run_nmap_scan avec l'adresse IP fournie
-print("Lancement du scan Nmap...")
-open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
+#print("Lancement du scan Nmap...")
+#open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
 
 # Affiche les résultats du scan a l'écran
 print("Ports TCP ouvert:", open_tcp_ports)
@@ -104,9 +104,9 @@ resultbruteforcessh = brute_force_ssh(ip_address)
 
 # Test de la CVE 2017-9798
 if CVE_2017_9798.CVE_2017_9798("192.168.140.142", " -n 100 -a -u") is True:
-        print("FAILLE PRESENTE !!!!")
+    print("CVE_2017_9798 PRESENTE !!!!")
 else:
-    print("FAILLE NON PRESENTE !")
+    print("CVE_2017_9798 NON PRESENTE !")
 
 # Appel des exploits compatibles
 print("Lancement des exploits...")
