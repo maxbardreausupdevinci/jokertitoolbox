@@ -92,10 +92,10 @@ while not is_valid_ip(ip_address):
 #open_tcp_ports, open_udp_ports, services, cves = run_nmap_scan(ip_address)
 
 # Affiche les résultats du scan a l'écran
-print("Ports TCP ouvert:", open_tcp_ports)
-print("Ports UDP ouvert:", open_udp_ports)
-print("Services:", services)
-print("CVEs:", cves)
+#print("Ports TCP ouvert:", open_tcp_ports)
+#print("Ports UDP ouvert:", open_udp_ports)
+#print("Services:", services)
+#print("CVEs:", cves)
 
 # Appelle la fonction brute_force_ssh avec l'adresse IP fournie
 print("Lancement du brute force SSH...")
