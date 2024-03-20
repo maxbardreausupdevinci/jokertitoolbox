@@ -45,7 +45,7 @@ def CVE_2017_9798(hosttocheck):
             "[duplicates] duplicates in list (may be apache bug 61207)\n"
             "[ok] normal list found (only shown with -a/--all)\n",
             formatter_class=argparse.RawTextHelpFormatter) 
-    parser.add_argument('hosttocheck',  action='store', default=hosttocheck,
+    parser.add_argument('hosttocheck',  action='store', nargs='?', default=hosttocheck,
                         help='The hostname you want to test against')
     parser.add_argument('-n', nargs=1, type=int, default=[10],
                         help='number of tests (default 10)')
@@ -57,12 +57,6 @@ def CVE_2017_9798(hosttocheck):
     howoften = int(args.n[0])
 
     dup = []
-
-    print("IP address:", args.hosttocheck)
-    print("Number of tests:", howoften)
-    print("Show headers from hosts without problems:", args.all)
-    print("Pass URL instead of hostname:", args.url)
-
 
     # Note: This disables warnings about the lack of certificate verification.
     # Usually this is a bad idea, but for this tool we want to find vulnerabilities
